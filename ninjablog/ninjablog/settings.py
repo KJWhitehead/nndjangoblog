@@ -25,7 +25,14 @@ SECRET_KEY = 'django-insecure-ptx_7dp#v3)2fgcc!id$+z*u&t_2d16(l+sbms($lgzz-g7y)o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-kjwhitehead-nndjangoblo-3lyzsr5onp6.ws-eu108.gitpod.io']
+ALLOWED_HOSTS = [
+    '.gitpod.io',
+    '.herokuapp.com']
+    
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.gitpod.io",
+    "https://*.herokuapp.com"
+]
 
 
 # Application definition
@@ -37,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'articles',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +62,7 @@ ROOT_URLCONF = 'ninjablog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
